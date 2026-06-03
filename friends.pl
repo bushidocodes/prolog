@@ -12,8 +12,8 @@ likes(wendolene, sheep).
 % The rules ends in a period
 % X, Y, Z are variables, which are uppercase or start with an underscore
 % There are three subgoals delimited by commas
-% \+ means logical negation (negation-as-failure)
+% dif(X, Y) constrains X and Y to never unify (true inequality)
 
 % This is the friend/2 rule.
 % For X to be a friend of Y, they can't be the same atom (first subgoal) and they must both like an atom in common
-friend(X, Y) :- \+(X = Y), likes(X, Z), likes(Y, Z).
+friend(X, Y) :- dif(X, Y), likes(X, Z), likes(Y, Z).
