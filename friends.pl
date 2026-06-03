@@ -12,7 +12,7 @@ likes(wendolene, sheep).
 % The rules ends in a period
 % X, Y, Z are variables, which are uppercase or start with an underscore
 % There are three subgoals delimited by commas
-% /+ means logical negation
+% \+ means logical negation (negation-as-failure)
 
 % This is the friend/2 rule.
 % For X to be a friend of Y, they can't be the same atom (first subgoal) and they must both like an atom in common
