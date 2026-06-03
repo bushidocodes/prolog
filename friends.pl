@@ -1,8 +1,8 @@
-% Prolog is a declarative rules-based language designed to build the knowldge base that powers an expert system
+% Prolog is a declarative rules-based language designed to build the knowledge base that powers an expert system
 
 % wallace, cheese, wendolene, and sheep are atoms, which are fixed values like symbols
 
-% These are facts, which are direct obervations of the world
+% These are facts, which are direct observations of the world
 likes(wallace, cheese).
 likes(grommit, cheese).
 likes(wendolene, sheep).
