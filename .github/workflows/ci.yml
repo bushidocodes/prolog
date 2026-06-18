@@ -1,0 +1,41 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install SWI-Prolog
+        run: sudo apt-get install -y swi-prolog
+
+      - name: Syntax-check all .pl files
+        run: |
+          for f in *.pl; do
+            swipl -q -l "$f" -g true -t halt \
+              && echo "$f: OK" || { echo "$f: FAIL"; exit 1; }
+          done
+
+      - name: Smoke-test friends.pl
+        run: |
+          swipl -q -l friends.pl \
+            -g "friend(wallace,grommit),friend(grommit,wallace),\+friend(wallace,wendolene),write(ok)" \
+            -t halt
+
+      - name: Smoke-test food.pl
+        run: |
+          swipl -q -l food.pl \
+            -g "food_flavor(spam,savory),food_flavor(twinkie,sweet),\+food_flavor(ritz,_),write(ok)" \
+            -t halt
+
+      - name: Smoke-test map.pl
+        run: |
+          swipl -q -l map.pl \
+            -g "coloring(_,_,_,_,_),write(ok)" \
+            -t halt
+
+      - name: Smoke-test ohmy.pl
+        run: |
+          swipl -q -l ohmy.pl \
+            -g "dorothy(lion,tiger,bear),cat(lion),cat(tiger),write(ok)" \
+            -t halt
