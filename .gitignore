@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.idea/
+*.swp
+*~
+
+# Prolog
+*.qlf
